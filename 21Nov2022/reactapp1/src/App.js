@@ -1,9 +1,12 @@
-import { myElement } from "./message";
+import { myInfo, x, flowers, grettings } from "./message";
 
 function App() {
   return (
     <div className="App">
-      {myElement}
+      {myInfo}
+      <p>{x}</p>
+      <p>{flowers}</p>
+      <h5>{grettings}</h5>
       <h1>Welcome to my app</h1>
       <table border="1" cellspacing="15" cellpadding="10">
         <tr>
