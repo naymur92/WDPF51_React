@@ -1,0 +1,15 @@
+{
+  "name": "homepractice",
+  "version": "1.0.0",
+  "description": "Testing file",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Naymur Rahman",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "date-format": "^4.0.14"
+  }
+}
