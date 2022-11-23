@@ -1,4 +1,4 @@
-export function HomeComponent() {
+export default function HomeComponent() {
   return (
     <div className="col-sm-8">
       <h2>TITLE HEADING</h2>

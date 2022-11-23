@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export function Sidebar() {
   return (
     <div className="col-sm-4">
@@ -9,24 +11,19 @@ export function Sidebar() {
       <p>Lorem ipsum dolor sit ame.</p>
       <ul className="nav nav-pills flex-column">
         <li className="nav-item">
-          <a className="nav-link active" href="#">
-            Active
-          </a>
+          <NavLink className="nav-link" to="/">
+            Home
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link
-          </a>
+          <NavLink className="nav-link" to="products">
+            Products
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">
-            Link
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link disabled" href="#">
-            Disabled
-          </a>
+          <NavLink className="nav-link" to="about">
+            About
+          </NavLink>
         </li>
       </ul>
       <hr className="d-sm-none" />

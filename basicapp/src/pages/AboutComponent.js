@@ -1,4 +1,4 @@
-export function AboutComponent() {
+export default function AboutComponent() {
   return (
     <div className="col-sm-8">
       <div className="card">
