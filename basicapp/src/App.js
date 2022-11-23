@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Footer } from "./footer/Footer";
-import { Header } from "./header/Header";
+import Header from "./header/Header";
 import Navbar from "./header/Navbar";
 import { Sidebar } from "./sidebar/Sidebar";
 import HomeComponent from "./pages/homeComponent/HomeComponent";

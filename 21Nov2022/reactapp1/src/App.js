@@ -1,24 +1,26 @@
-import { myInfo, x, flowers, grettings } from "./message";
+import { Outlet } from "react-router-dom";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import Footer from "./footer/Footer";
+import Header from "./header/Header";
+import Navbar from "./header/Navbar";
+import Sidebar from "./sidebar/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      {myInfo}
-      <p>{x}</p>
-      <p>{flowers}</p>
-      <h5>{grettings}</h5>
-      <h1>Welcome to my app</h1>
-      <table border="1" cellspacing="15" cellpadding="10">
-        <tr>
-          <th>Name</th>
-        </tr>
-        <tr>
-          <td>Naymur</td>
-        </tr>
-        <tr>
-          <td>Fayzullah</td>
-        </tr>
-      </table>
+      <Header brand="Honey Link" slogan="Committed To Quality" />
+      <Navbar />
+      <div className="container mt-5">
+        <div className="row">
+          <Sidebar />
+
+          {/* This is a path where load routing component */}
+          <Outlet />
+        </div>
+      </div>
+      <Footer brand="HoneyLink" />
     </div>
   );
 }
