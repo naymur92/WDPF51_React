@@ -9,6 +9,12 @@ import ProductComponent from "./pages/productComponent/ProductComponent";
 import AboutComponent from "./pages/AboutComponent";
 import ContactComponent from "./pages/ContactComponent";
 import FirmComponent from "./pages/FirmComponent";
+import Colors from "./components/Colors/Colors";
+import Search from "./components/Search/Search";
+import LifeCycle from "./components/LifeCycle/LifeCycle";
+import UserList from "./users/UserList";
+import Insert from "./users/Insert";
+import Edit from "./users/Edit";
 
 const RouterApp = () => {
   return (
@@ -20,6 +26,12 @@ const RouterApp = () => {
           <Route path="about" element={<AboutComponent />} />
           <Route path="contact" element={<ContactComponent />} />
           <Route path="firm" element={<FirmComponent />} />
+          <Route path="colors" element={<Colors />} />
+          <Route path="search" element={<Search />} />
+          <Route path="lifecycle" element={<LifeCycle />} />
+          <Route path="users" element={<UserList />} />
+          <Route path="users/insert" element={<Insert />} />
+          <Route path="users/edit/:ids" element={<Edit />} />
         </Route>
       </Routes>
     </Router>

@@ -31,6 +31,26 @@ export default function Navbar() {
               Firm
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="colors">
+              Colors
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="search">
+              Search
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="lifecycle">
+              LifyCycle
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="users">
+              User List
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
