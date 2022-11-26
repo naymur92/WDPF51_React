@@ -7,6 +7,7 @@ const Edituser = (props) => {
   const [userInfo, setuserInfo] = useState({
     name: props.list.name,
     email: props.list.email,
+    password: props.list.password,
   });
   const onChangeValue = (e) => {
     setuserInfo({
@@ -18,16 +19,21 @@ const Edituser = (props) => {
   const submitUser = async (event) => {
     try {
       event.preventDefault();
+      // console.log(props.list.id);
       event.persist();
       axios
-        .post(`http://292.468.0.305/Apicrud/editusers.php`, {
+        .post(`http://localhost/wdpf51_React/basicapp/api/editusers.php`, {
           username: userInfo.name,
           useremail: userInfo.email,
-          userids: props.list.user_id,
+          userpass: userInfo.password,
+          userids: props.list.id,
         })
         .then((res) => {
-          console.log(res.data);
-          navigate(`/`);
+          // console.log(res.data);
+          if (res.data.success) {
+            alert(res.data.msg);
+            navigate(`/users`);
+          }
           return;
         });
     } catch (error) {
@@ -43,26 +49,41 @@ const Edituser = (props) => {
         type="text"
         id="_name"
         name="name"
+        className="form-control"
         value={userInfo.name}
         onChange={onChangeValue}
         placeholder="Enter name"
         autoComplete="off"
         required
       />
-      <br /> <br />
+      <br />
       <label htmlFor="_email">Email</label>
       <input
         type="email"
         id="_email"
         name="email"
+        className="form-control"
         value={userInfo.email}
         onChange={onChangeValue}
         placeholder="Enter email"
         autoComplete="off"
         required
       />
-      <br /> <br />
-      <input type="submit" value="update" />
+      <br />
+      <label htmlFor="_email">Password</label>
+      <input
+        type="password"
+        id="_password"
+        name="password"
+        className="form-control"
+        value={userInfo.password}
+        onChange={onChangeValue}
+        placeholder="Enter password"
+        autoComplete="off"
+        required
+      />
+      <br />
+      <input type="submit" value="UPDATE" className="btn btn-success" />
     </form>
   );
 };

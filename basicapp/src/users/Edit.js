@@ -17,11 +17,12 @@ const Edit = () => {
   const edituserlist = async (ids) => {
     try {
       axios
-        .post(`http://292.468.0.305/Apicrud/getusers.php`, {
+        .post(`http://localhost/wdpf51_React/basicapp/api/getusers.php`, {
           userids: ids,
         })
         .then((res) => {
-          console.log(res.data.userlist.userdata);
+          // console.log(res.data.userlist.userdata[0]);
+
           setuser(res.data.userlist.userdata[0]);
           setloaduser(true);
         });
@@ -30,7 +31,9 @@ const Edit = () => {
     }
   };
 
-  return <div>{isloaduser && <Edituser list={isuser} />}</div>;
+  return (
+    <div className="col-sm-8">{isloaduser && <Edituser list={isuser} />}</div>
+  );
 };
 
 export default Edit;

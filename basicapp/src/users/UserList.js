@@ -30,10 +30,11 @@ const UserList = () => {
   const deleteUser = async (id) => {
     try {
       axios
-        .post(`http://292.468.0.305/Apicrud/deleteusers.php`, {
+        .post(`http://localhost/wdpf51_React/basicapp/api/deleteusers.php`, {
           userids: id,
         })
         .then((res) => {
+          console.log(res.data);
           setuser([]);
           alluser();
           return;
@@ -45,40 +46,44 @@ const UserList = () => {
 
   return (
     <div className="col-sm-8">
-      <Link to="users/insert" className="btn btn-warning my-2">
+      <Link to="insert" className="btn btn-warning my-2">
         {" "}
-        Create User{" "}
+        Create New User{" "}
       </Link>
-      <table className="table table-primary table-striped">
-        <tr>
-          <th>SL. No</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Action</th>
-        </tr>
-        {isuser.map((item, index) => (
-          <tr className="list" key={item.id}>
-            <td>{index + 1}</td>
-            <td>{item.name}</td>
-            <td>{item.email}</td>
-            <td>
-              <Link
-                to={`users/edit/${item.id}`}
-                className="btn btn-outline-primary"
-              >
-                {" "}
-                Edit{" "}
-              </Link>
-              <span
-                onClick={() => deleteConfirm(item.id)}
-                className="btn btn-outline-danger mx-2"
-              >
-                {" "}
-                Delete{" "}
-              </span>
-            </td>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>SL. No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {isuser.map((item, index) => (
+            <tr className="list" key={item.id}>
+              <td>{index + 1}</td>
+              <td>{item.name}</td>
+              <td>{item.email}</td>
+              <td>
+                <Link
+                  to={`edit/${item.id}`}
+                  className="btn btn-outline-primary"
+                >
+                  {" "}
+                  Edit{" "}
+                </Link>
+                <span
+                  onClick={() => deleteConfirm(item.id)}
+                  className="btn btn-outline-danger mx-2"
+                >
+                  {" "}
+                  Delete{" "}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
