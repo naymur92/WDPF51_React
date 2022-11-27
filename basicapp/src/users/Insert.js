@@ -77,11 +77,10 @@ const Insert = () => {
         />
         <br />
         <input type="submit" className="btn btn-primary" value="Insert" />
+        <Link to="/users" className="btn btn-outline-warning pull-right">
+          Back
+        </Link>
       </form>
-      <br />
-      <Link to="/users" className="btn btn-outline-warning my-3">
-        Back
-      </Link>
     </div>
   );
 };

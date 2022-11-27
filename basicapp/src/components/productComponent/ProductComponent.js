@@ -15,7 +15,7 @@ export default function ProductComponent() {
       axios
         .get(`http://localhost/wdpf51_React/basicapp/api/products/products.php`)
         .then((res) => {
-          console.log(res.data.productlist.productdata);
+          // console.log(res.data.productlist.productdata);
           setProduct(res.data.productlist.productdata);
         });
     } catch (error) {
@@ -24,18 +24,18 @@ export default function ProductComponent() {
   };
 
   const delProdConfirm = (id) => {
-    if (window.alert("Are You Sure?")) {
+    if (window.confirm("Are You Sure?")) {
       delProd(id);
     }
   };
 
   const delProd = (id) => {
+    console.log(id);
     axios
       .delete(
         `http://localhost/wdpf51_React/basicapp/api/products/deleteprod.php/?id=${id}`
       )
       .then((res) => {
-        console.log(res.data);
         if (res.data.success) {
           allProducts();
           alert(res.data.msg);
@@ -51,18 +51,24 @@ export default function ProductComponent() {
         </div>
         <div className="card-body">
           <div className="row">
+            <div className="row">
+              <Link to="/products/insert" className="btn btn-outline-info mx-2">
+                <strong>Insert New Product</strong>
+              </Link>
+            </div>
             {/* Product component will call here */}
             {isproduct.map((item, index) => (
-              <div className="col-6">
+              <div className="col-6" key={item.id}>
                 <div className="card product">
                   <div className="card-header bg-warning">
                     <h4>{item.name}</h4>
                   </div>
                   <div className="card-body">
                     <img
-                      src={`${item.image}`}
-                      width="250px"
+                      src={`assets/images/products/${item.image}`}
+                      width="100%"
                       alt="Product Thumb"
+                      className="img-thumbnail"
                     />
                     <p>
                       <strong>Description: </strong>
@@ -73,21 +79,19 @@ export default function ProductComponent() {
                       {item.price}
                     </p>
                     <div className="row">
-                      <div className="col-4">
+                      <div className="col-5">
                         <Link
                           to={`products/buy/${item.id}`}
-                          className="btn btn-info"
+                          className="btn btn-outline-warning"
                         >
-                          Buy
+                          Buy Now
                         </Link>
                       </div>
-                      <div className="col-8 text-right">
-                        <button
+                      <div className="col-7 d-flex flex-row-reverse">
+                        <i
                           onClick={() => delProdConfirm(item.id)}
-                          className="delete-btn b-0 m-0"
-                        >
-                          <i className="fa fa-trash"></i>
-                        </button>
+                          className="fa fa-trash delete-btn text-danger mt-1"
+                        ></i>
                       </div>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Edituser = (props) => {
   const navigate = useNavigate();
@@ -84,6 +84,9 @@ const Edituser = (props) => {
       />
       <br />
       <input type="submit" value="UPDATE" className="btn btn-success" />
+      <Link to="/users" className="btn btn-outline-info pull-right">
+        Go Back
+      </Link>
     </form>
   );
 };
