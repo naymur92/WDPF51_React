@@ -15,6 +15,7 @@ import LifeCycle from "./components/LifeCycle/LifeCycle";
 import UserList from "./users/UserList";
 import Insert from "./users/Insert";
 import Edit from "./users/Edit";
+import ProductInsert from "./components/productComponent/ProductInsert";
 
 const RouterApp = () => {
   return (
@@ -23,6 +24,7 @@ const RouterApp = () => {
         <Route path="/" element={<App />}>
           <Route index element={<HomeComponent />} />
           <Route path="products" element={<ProductComponent />} />
+          <Route path="products/insert" element={<ProductInsert />} />
           <Route path="about" element={<AboutComponent />} />
           <Route path="contact" element={<ContactComponent />} />
           <Route path="firm" element={<FirmComponent />} />

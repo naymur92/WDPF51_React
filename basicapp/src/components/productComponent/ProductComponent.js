@@ -30,7 +30,7 @@ export default function ProductComponent() {
   };
 
   const delProd = (id) => {
-    console.log(id);
+    // console.log(id);
     axios
       .delete(
         `http://localhost/wdpf51_React/basicapp/api/products/deleteprod.php/?id=${id}`
