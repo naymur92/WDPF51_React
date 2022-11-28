@@ -13,6 +13,7 @@ function ProductInsert() {
 
   const onChangeValue = (event) => {
     setProductInfo({ ...productInfo, [event.target.name]: event.target.value });
+    console.log(productInfo);
   };
 
   const [file, setFile] = useState();
@@ -34,8 +35,8 @@ function ProductInsert() {
       const thumbArray = productInfo.image.split('\\');
       thumb = thumbArray[thumbArray.length - 1];
     }
-    console.log(productInfo);
-    console.log(thumb);
+    // console.log(productInfo);
+    // console.log(thumb);
 
     axios
       .post(`http://localhost/wdpf51_React/basicapp/api/products/add_product.php`, {

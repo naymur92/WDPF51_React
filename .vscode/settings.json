@@ -1,6 +1,6 @@
 {
   // Theme
-  // "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Learn with Sumit - Vintage",
 
   // config related to code formatting
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -28,5 +28,8 @@
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   }
 }
