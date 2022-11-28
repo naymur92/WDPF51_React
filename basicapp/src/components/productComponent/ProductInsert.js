@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductInsert = () => {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const ProductInsert = () => {
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
-    console.log(file);
+    // console.log(file);
     // console.log(e.target.files);
     // console.log(e.target.files[0]);
   };
