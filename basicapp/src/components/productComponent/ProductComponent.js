@@ -1,7 +1,7 @@
-import "./ProductComponent.css";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './ProductComponent.css';
 
 export default function ProductComponent() {
   useEffect(() => {
@@ -10,37 +10,31 @@ export default function ProductComponent() {
   }, []);
 
   const [isproduct, setProduct] = useState([]);
-  const allProducts = async (id) => {
-    try {
-      axios
-        .get(`http://localhost/wdpf51_React/basicapp/api/products/products.php`)
-        .then((res) => {
-          // console.log(res.data.productlist.productdata);
-          setProduct(res.data.productlist.productdata);
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const delProdConfirm = (id) => {
-    if (window.confirm("Are You Sure?")) {
-      delProd(id);
-    }
+  const allProducts = async () => {
+    axios.get(`http://localhost/wdpf51_React/basicapp/api/products/products.php`).then((res) => {
+      // console.log(res.data.productlist.productdata);
+      setProduct(res.data.productlist.productdata);
+    });
   };
 
   const delProd = (id) => {
     // console.log(id);
     axios
-      .delete(
-        `http://localhost/wdpf51_React/basicapp/api/products/deleteprod.php/?id=${id}`
-      )
+      .delete(`http://localhost/wdpf51_React/basicapp/api/products/deleteprod.php/?id=${id}`)
       .then((res) => {
         if (res.data.success) {
           allProducts();
+          // eslint-disable-next-line no-alert
           alert(res.data.msg);
         }
       });
+  };
+
+  const delProdConfirm = (id) => {
+    // eslint-disable-next-line no-alert
+    if (window.confirm('Are You Sure?')) {
+      delProd(id);
+    }
   };
 
   return (
@@ -52,12 +46,12 @@ export default function ProductComponent() {
         <div className="card-body">
           <div className="row">
             <div className="row">
-              <Link to="/products/insert" className="btn btn-outline-info mx-2">
+              <Link to="/product/insert" className="btn btn-outline-info mx-2">
                 <strong>Insert New Product</strong>
               </Link>
             </div>
             {/* Product component will call here */}
-            {isproduct.map((item, index) => (
+            {isproduct.map((item) => (
               <div className="col-6" key={item.id}>
                 <div className="card product">
                   <div className="card-header bg-warning">
@@ -80,18 +74,19 @@ export default function ProductComponent() {
                     </p>
                     <div className="row">
                       <div className="col-5">
-                        <Link
-                          to={`products/buy/${item.id}`}
-                          className="btn btn-outline-warning"
-                        >
+                        <Link to={`products/buy/${item.id}`} className="btn btn-outline-warning">
                           Buy Now
                         </Link>
                       </div>
-                      <div className="col-7 d-flex flex-row-reverse">
+                      <div className="col-7 d-flex flex-row-reverse mt-1">
                         <i
                           onClick={() => delProdConfirm(item.id)}
-                          className="fa fa-trash delete-btn text-danger mt-1"
-                        ></i>
+                          className="fa fa-trash action-btn text-danger mx-2"
+                          role="button"
+                        />
+                        <Link to={`/product/edit/${item.id}`}>
+                          <i className="fa fa-pencil action-btn text-primary" />
+                        </Link>
                       </div>
                     </div>
                   </div>

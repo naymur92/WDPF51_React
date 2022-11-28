@@ -1,12 +1,12 @@
-import { Outlet } from "react-router-dom";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "font-awesome/css/font-awesome.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
+import { Outlet } from 'react-router-dom';
+import './App.css';
 
-import { Footer } from "./footer/Footer";
-import Header from "./header/Header";
-import Navbar from "./header/Navbar";
-import { Sidebar } from "./sidebar/Sidebar";
+import Footer from './footer/Footer';
+import Header from './header/Header';
+import Navbar from './header/Navbar';
+import Sidebar from './sidebar/Sidebar';
 
 function App() {
   return (

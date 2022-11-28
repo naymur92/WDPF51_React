@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-import Edituser from "./Edituser";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import Edituser from './Edituser';
 
-const Edit = () => {
-  let params = useParams();
-  let navigate = useNavigate();
+function Edit() {
+  const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
     edituserlist(params.ids);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [isuser, setuser] = useState([]);
@@ -27,13 +28,11 @@ const Edit = () => {
           setloaduser(true);
         });
     } catch (error) {
-      throw error;
+      // throw error;
     }
   };
 
-  return (
-    <div className="col-sm-8">{isloaduser && <Edituser list={isuser} />}</div>
-  );
-};
+  return <div className="col-sm-8">{isloaduser && <Edituser list={isuser} />}</div>;
+}
 
 export default Edit;

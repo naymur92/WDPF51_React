@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function ContactComponent() {
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name } = event.target;
+    const { value } = event.target;
 
     setInputs((values) => ({ ...values, [name]: value }));
   };
@@ -30,7 +30,7 @@ export default function ContactComponent() {
               <input
                 type="text"
                 name="name"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter Name"
                 onChange={handleChange}
               />
@@ -42,7 +42,7 @@ export default function ContactComponent() {
               <input
                 type="email"
                 name="email"
-                class="form-control"
+                className="form-control"
                 placeholder="Enter Email"
                 onChange={handleChange}
               />
@@ -53,16 +53,12 @@ export default function ContactComponent() {
               </label>
               <textarea
                 name="message"
-                class="form-control"
+                className="form-control"
                 placeholder="Leave your message here"
                 onChange={handleChange}
-              ></textarea>
+              />
             </div>
-            <input
-              type="submit"
-              className="btn btn-success mt-2"
-              value="Send Message"
-            />
+            <input type="submit" className="btn btn-success mt-2" value="Send Message" />
             <input type="reset" className="btn btn-danger mt-2 mx-2" />
           </form>
         </div>

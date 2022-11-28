@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Insert = () => {
+function Insert() {
   const navigate = useNavigate();
   const [userInfo, setuserInfo] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: '',
+    email: '',
+    password: '',
   });
   const onChangeValue = (e) => {
     setuserInfo({
@@ -30,10 +30,9 @@ const Insert = () => {
         .then((res) => {
           console.log(res.data);
           navigate(`/users`);
-          return;
         });
     } catch (error) {
-      throw error;
+      // throw error;
     }
   };
 
@@ -83,6 +82,6 @@ const Insert = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Insert;

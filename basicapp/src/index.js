@@ -1,30 +1,32 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HomeComponent from "./components/homeComponent/HomeComponent";
-import ProductComponent from "./components/productComponent/ProductComponent";
-import AboutComponent from "./components/AboutComponent";
-import ContactComponent from "./components/ContactComponent";
-import FirmComponent from "./components/FirmComponent";
-import Colors from "./components/Colors/Colors";
-import Search from "./components/Search/Search";
-import LifeCycle from "./components/LifeCycle/LifeCycle";
-import UserList from "./users/UserList";
-import Insert from "./users/Insert";
-import Edit from "./users/Edit";
-import ProductInsert from "./components/productComponent/ProductInsert";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import App from './App';
+import AboutComponent from './components/AboutComponent';
+import Colors from './components/Colors/Colors';
+import ContactComponent from './components/ContactComponent';
+import FirmComponent from './components/FirmComponent';
+import HomeComponent from './components/homeComponent/HomeComponent';
+import LifeCycle from './components/LifeCycle/LifeCycle';
+import ProductComponent from './components/productComponent/ProductComponent';
+import ProductEdit from './components/productComponent/ProductEdit';
+import ProductInsert from './components/productComponent/ProductInsert';
+import Search from './components/Search/Search';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+import Edit from './users/Edit';
+import Insert from './users/Insert';
+import UserList from './users/UserList';
 
-const RouterApp = () => {
+function RouterApp() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomeComponent />} />
           <Route path="products" element={<ProductComponent />} />
-          <Route path="products/insert" element={<ProductInsert />} />
+          <Route path="product/insert" element={<ProductInsert />} />
+          <Route path="product/edit/:id" element={<ProductEdit />} />
           <Route path="about" element={<AboutComponent />} />
           <Route path="contact" element={<ContactComponent />} />
           <Route path="firm" element={<FirmComponent />} />
@@ -38,9 +40,9 @@ const RouterApp = () => {
       </Routes>
     </Router>
   );
-};
+}
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RouterApp />

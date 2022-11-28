@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const UserList = () => {
+function UserList() {
+  const [isuser, setuser] = useState([]);
+  const alluser = async () => {
+    try {
+      axios.get(`http://localhost/wdpf51_React/basicapp/api/users.php`).then((res) => {
+        console.log(res.data.userlist.userdata);
+        setuser(res.data.userlist.userdata);
+      });
+    } catch (error) {
+      // throw error;
+    }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     alluser();
   }, []);
 
-  const [isuser, setuser] = useState([]);
-  const alluser = async (ids) => {
-    try {
-      axios
-        .get(`http://localhost/wdpf51_React/basicapp/api/users.php`)
-        .then((res) => {
-          console.log(res.data.userlist.userdata);
-          setuser(res.data.userlist.userdata);
-        });
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const deleteConfirm = (id) => {
-    if (window.confirm("Are you sure?")) {
-      deleteUser(id);
-    }
-  };
   const deleteUser = async (id) => {
     try {
       axios
@@ -37,18 +30,24 @@ const UserList = () => {
           console.log(res.data);
           setuser([]);
           alluser();
-          return;
         });
     } catch (error) {
-      throw error;
+      // throw error;
+    }
+  };
+
+  const deleteConfirm = (id) => {
+    // eslint-disable-next-line no-alert
+    if (window.confirm('Are you sure?')) {
+      deleteUser(id);
     }
   };
 
   return (
     <div className="col-sm-8">
       <Link to="insert" className="btn btn-warning my-2">
-        {" "}
-        Create New User{" "}
+        {' '}
+        Create New User{' '}
       </Link>
       <table className="table table-striped">
         <thead>
@@ -66,19 +65,18 @@ const UserList = () => {
               <td>{item.name}</td>
               <td>{item.email}</td>
               <td>
-                <Link
-                  to={`edit/${item.id}`}
-                  className="btn btn-outline-primary"
-                >
-                  {" "}
-                  Edit{" "}
+                <Link to={`edit/${item.id}`} className="btn btn-outline-primary">
+                  {' '}
+                  Edit{' '}
                 </Link>
                 <span
                   onClick={() => deleteConfirm(item.id)}
                   className="btn btn-outline-danger mx-2"
+                  role="button"
+                  tabIndex="0"
                 >
-                  {" "}
-                  Delete{" "}
+                  {' '}
+                  Delete{' '}
                 </span>
               </td>
             </tr>
@@ -87,6 +85,6 @@ const UserList = () => {
       </table>
     </div>
   );
-};
+}
 
 export default UserList;

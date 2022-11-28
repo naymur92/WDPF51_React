@@ -1,15 +1,8 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  myInfo,
-  x,
-  flowers,
-  grettings,
-  person,
-  input_element,
-} from "./message";
-import Product from "./Product";
-import Student from "./Student";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { flowers, grettings, inputElement, myInfo, person, x } from './message';
+import Product from './Product';
+import Student from './Student';
 
 function App() {
   return (
@@ -21,7 +14,7 @@ function App() {
       <p>
         Name: {person.name}, Address: {person.address}
       </p>
-      {input_element}
+      {inputElement}
       <div className="product_container">
         <h1>Products Area</h1>
 

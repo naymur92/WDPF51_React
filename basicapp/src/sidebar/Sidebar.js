@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
-export function Sidebar() {
+export default function Sidebar() {
   return (
     <div className="col-sm-4">
       <h2>About Me</h2>

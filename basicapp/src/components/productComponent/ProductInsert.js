@@ -1,14 +1,14 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const ProductInsert = () => {
+function ProductInsert() {
   const navigate = useNavigate();
   const [productInfo, setProductInfo] = useState({
-    name: "",
-    details: "",
-    image: "",
-    price: "",
+    name: '',
+    details: '',
+    image: '',
+    price: '',
   });
 
   const onChangeValue = (event) => {
@@ -19,7 +19,7 @@ const ProductInsert = () => {
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
-    // console.log(file);
+    console.log(file);
     // console.log(e.target.files);
     // console.log(e.target.files[0]);
   };
@@ -28,33 +28,29 @@ const ProductInsert = () => {
 
   const submitProduct = async (event) => {
     event.preventDefault();
-    try {
-      var thumb = "";
-      if (productInfo.image !== "") {
-        let thumbArray = productInfo.image.split("\\");
-        thumb = thumbArray[thumbArray.length - 1];
-      }
-      console.log(productInfo);
-      // console.log(thumb);
 
-      axios
-        .post(
-          `http://localhost/wdpf51_React/basicapp/api/products/add_product.php`,
-          {
-            name: productInfo.name,
-            details: productInfo.details,
-            image: thumb,
-            price: productInfo.price,
-          }
-        )
-        .then((res) => {
-          if (res.data.success) {
-            alert(res.data.msg);
-            navigate(`/products`);
-            return;
-          }
-        });
-    } catch (error) {}
+    let thumb = '';
+    if (productInfo.image !== '') {
+      const thumbArray = productInfo.image.split('\\');
+      thumb = thumbArray[thumbArray.length - 1];
+    }
+    console.log(productInfo);
+    console.log(thumb);
+
+    axios
+      .post(`http://localhost/wdpf51_React/basicapp/api/products/add_product.php`, {
+        name: productInfo.name,
+        details: productInfo.details,
+        image: thumb,
+        price: productInfo.price,
+      })
+      .then((res) => {
+        if (res.data.success) {
+          // eslint-disable-next-line no-alert
+          alert(res.data.msg);
+          navigate(`/products`);
+        }
+      });
   };
 
   return (
@@ -66,12 +62,13 @@ const ProductInsert = () => {
         <div className="card-body">
           <form onSubmit={submitProduct}>
             <div className="form-group my-2">
-              <label>
+              <label htmlFor="_pname">
                 <strong>Product Name:</strong>
               </label>
               <input
                 type="text"
                 name="name"
+                id="_pname"
                 placeholder="Enter product name"
                 onChange={onChangeValue}
                 className="form-control"
@@ -80,36 +77,31 @@ const ProductInsert = () => {
             <div className="form-group my-2">
               <label>
                 <strong>Product Details:</strong>
+                <textarea
+                  name="details"
+                  placeholder="Enter product details"
+                  onChange={onChangeValue}
+                  className="form-control"
+                />
               </label>
-              <textarea
-                name="details"
-                placeholder="Enter product details"
-                onChange={onChangeValue}
-                className="form-control"
-              ></textarea>
             </div>
             <div className="form-group my-2">
               <label>
                 <strong>Product Thumbnail:</strong>
+                <input type="file" name="image" onChange={onChangeValue} className="form-control" />
               </label>
-              <input
-                type="file"
-                name="image"
-                onChange={onFileChange}
-                className="form-control"
-              />
             </div>
             <div className="form-group my-2">
               <label>
                 <strong>Product Price:</strong>
+                <input
+                  type="number"
+                  name="price"
+                  onChange={onChangeValue}
+                  className="form-control"
+                  placeholder="Enter Price"
+                />
               </label>
-              <input
-                type="number"
-                name="price"
-                onChange={onChangeValue}
-                className="form-control"
-                placeholder="Enter Price"
-              />
             </div>
             <input
               type="submit"
@@ -125,6 +117,6 @@ const ProductInsert = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductInsert;

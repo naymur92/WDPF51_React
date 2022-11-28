@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Edituser = (props) => {
+function Edituser(props) {
   const navigate = useNavigate();
   const [userInfo, setuserInfo] = useState({
     name: props.list.name,
@@ -34,10 +34,9 @@ const Edituser = (props) => {
             alert(res.data.msg);
             navigate(`/users`);
           }
-          return;
         });
     } catch (error) {
-      throw error;
+      // throw error;
     }
   };
 
@@ -89,6 +88,6 @@ const Edituser = (props) => {
       </Link>
     </form>
   );
-};
+}
 
 export default Edituser;

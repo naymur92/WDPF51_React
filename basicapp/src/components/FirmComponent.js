@@ -1,14 +1,14 @@
-const HoneyItems = (props) => {
+function HoneyItems(props) {
   return <li className="alert alert-success">We have {props.name} honey.</li>;
-};
+}
 
 export default function FirmComponent() {
   const products = [
-    { id: 1, name: "Black Seed" },
-    { id: 2, name: "Mustered Flower" },
-    { id: 3, name: "Sundarban" },
-    { id: 4, name: "Lichi Flower" },
-    { id: 5, name: "Sunflower" },
+    { id: 1, name: 'Black Seed' },
+    { id: 2, name: 'Mustered Flower' },
+    { id: 3, name: 'Sundarban' },
+    { id: 4, name: 'Lichi Flower' },
+    { id: 5, name: 'Sunflower' },
   ];
   return (
     <div className="col-sm-8">
