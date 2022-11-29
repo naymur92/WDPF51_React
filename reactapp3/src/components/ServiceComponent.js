@@ -3,9 +3,7 @@ function ServiceComponent() {
     <div className="services_section layout_padding">
       <div className="container">
         <h1 className="services_taital">our services</h1>
-        <p className="many_taital">
-          There are many variations of passages of Lorem Ipsum{" "}
-        </p>
+        <p className="many_taital">There are many variations of passages of Lorem Ipsum </p>
         <div className="services_section2 layout_padding">
           <div className="row">
             <div className="col-lg-3 col-sm-6">
@@ -14,12 +12,11 @@ function ServiceComponent() {
               </div>
               <h2 className="furnitures_text">Furnitures</h2>
               <p className="dummy_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the
+                There are many variations of passages of Lorem Ipsum available, but the
               </p>
               <div className="read_bt_main">
                 <div className="read_bt">
-                  <a href="#">Read More</a>
+                  <a href="http://">Read More</a>
                 </div>
               </div>
             </div>
@@ -29,12 +26,11 @@ function ServiceComponent() {
               </div>
               <h2 className="furnitures_text">office</h2>
               <p className="dummy_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the
+                There are many variations of passages of Lorem Ipsum available, but the
               </p>
               <div className="read_bt_main">
                 <div className="read_bt">
-                  <a href="#">Read More</a>
+                  <a href="http://">Read More</a>
                 </div>
               </div>
             </div>
@@ -44,12 +40,11 @@ function ServiceComponent() {
               </div>
               <h2 className="furnitures_text">Home</h2>
               <p className="dummy_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the
+                There are many variations of passages of Lorem Ipsum available, but the
               </p>
               <div className="read_bt_main">
                 <div className="read_bt">
-                  <a href="#">Read More</a>
+                  <a href="http://">Read More</a>
                 </div>
               </div>
             </div>
@@ -59,12 +54,11 @@ function ServiceComponent() {
               </div>
               <h2 className="furnitures_text">badroom</h2>
               <p className="dummy_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the
+                There are many variations of passages of Lorem Ipsum available, but the
               </p>
               <div className="read_bt_main">
                 <div className="read_bt">
-                  <a href="#">Read More</a>
+                  <a href="http://">Read More</a>
                 </div>
               </div>
             </div>

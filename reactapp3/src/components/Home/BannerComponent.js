@@ -7,8 +7,8 @@ function BannerComponent() {
             <div className="carousel-item active">
               <h1 className="furniture_text">FURNITURE</h1>
               <p className="there_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some fo
+                There are many variations of passages of Lorem Ipsum available, but the majority
+                have suffered alteration in some fo
               </p>
               <div className="contact_bt_main">
                 <div className="contact_bt">
@@ -19,8 +19,8 @@ function BannerComponent() {
             <div className="carousel-item">
               <h1 className="furniture_text">FURNITURE</h1>
               <p className="there_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some fo
+                There are many variations of passages of Lorem Ipsum available, but the majority
+                have suffered alteration in some fo
               </p>
               <div className="contact_bt_main">
                 <div className="contact_bt">
@@ -31,8 +31,8 @@ function BannerComponent() {
             <div className="carousel-item">
               <h1 className="furniture_text">FURNITURE</h1>
               <p className="there_text">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some fo
+                There are many variations of passages of Lorem Ipsum available, but the majority
+                have suffered alteration in some fo
               </p>
               <div className="contact_bt_main">
                 <div className="contact_bt">

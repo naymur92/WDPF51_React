@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function HeaderComponent() {
   return (
     <div className="header_section">
@@ -5,7 +7,7 @@ function HeaderComponent() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="logo">
             <a href="index.html">
-              <img src="assets/images/logo.png" />
+              <img src="assets/images/logo.png" alt="" />
             </a>
           </div>
           <button
@@ -17,34 +19,34 @@ function HeaderComponent() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <a className="nav-link" href="index.html">
+                <Link className="nav-link" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="services.html">
+                <Link className="nav-link" to="service">
                   services
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="about.html">
+                <Link className="nav-link" to="about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="shop.html">
+                <Link className="nav-link" to="shop">
                   Shop
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contact.html">
+                <Link className="nav-link" to="contact">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
@@ -53,12 +55,12 @@ function HeaderComponent() {
             <div className="search_icon">
               <ul>
                 <li>
-                  <a href="#">
-                    <img src="assets/images/search-icon.png" />
-                  </a>
+                  <Link to="search">
+                    <img src="assets/images/search-icon.png" alt="" />
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">LOGIN</a>
+                  <Link to="login">LOGIN</Link>
                 </li>
               </ul>
             </div>

@@ -10,15 +10,15 @@ function FooterComponent() {
                 <img src="assets/images/footer-logo.png" />
               </div>
               <p className="footer_lorem_text">
-                There are many variat ions of passages of L orem Ipsum available
-                , but the majority h ave suffered altera tion in some form, by
+                There are many variat ions of passages of L orem Ipsum available , but the majority
+                h ave suffered altera tion in some form, by
               </p>
             </div>
             <div className="col-lg-3 col-sm-6">
               <h1 className="customer_text">LET US HELP YOU</h1>
               <p className="footer_lorem_text">
-                There are many variat ions of passages of L orem Ipsum available
-                , but the majority h ave suffered altera tion in some form, by
+                There are many variat ions of passages of L orem Ipsum available , but the majority
+                h ave suffered altera tion in some form, by
               </p>
             </div>
             <div className="col-lg-3 col-sm-6">
@@ -40,8 +40,8 @@ function FooterComponent() {
             <div className="col-lg-3 col-sm-6">
               <h1 className="customer_text">OUR Design</h1>
               <p className="footer_lorem_text">
-                There are many variat ions of passages of L orem Ipsum available
-                , but the majority h ave suffered altera tion in some form, by
+                There are many variat ions of passages of L orem Ipsum available , but the majority
+                h ave suffered altera tion in some form, by
               </p>
             </div>
           </div>
@@ -55,42 +55,42 @@ function FooterComponent() {
             />
             <div className="input-group-append">
               <span className="input-group-text" id="basic-addon2">
-                <a href="#">Subscribe</a>
+                <a href="http://">Subscribe</a>
               </span>
             </div>
           </div>
         </div>
       </div>
-      {/*<!--  footer section end --> */}
-      {/*<!-- copyright section start --> */}
+      {/* <!--  footer section end --> */}
+      {/* <!-- copyright section start --> */}
       <div className="copyright_section">
         <div className="container">
           <div className="social_icon">
             <ul>
               <li>
-                <a href="#">
+                <a href="http://">
                   <img src="assets/images/fb-icon.png" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="http://">
                   <img src="assets/images/twitter-icon.png" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="http://">
                   <img src="assets/images/instagram-icon.png" />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="http://">
                   <img src="assets/images/linkedin-icon.png" />
                 </a>
               </li>
             </ul>
           </div>
           <p className="copyright_text">
-            2020 All Rights Reserved. Design by{" "}
+            2020 All Rights Reserved. Design by{' '}
             <a href="https://html.design">Free html Templates</a>
           </p>
         </div>
