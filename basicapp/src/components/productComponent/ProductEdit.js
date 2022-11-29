@@ -34,17 +34,32 @@ function ProductEdit() {
 
   const updateProduct = (event) => {
     event.preventDefault();
+    // console.log(product);
+
+    // Compare selected image and extract file name
+    let thumb = product.image;
+    if (product.thumbnail) {
+      const fileNameArray = product.thumbnail.split('\\');
+      thumb = fileNameArray[fileNameArray.length - 1];
+    }
 
     axios
-      .post('http://localhost/wdpf51_React/basicapp/api/products/update_product.php', {
+      .put('http://localhost/wdpf51_React/basicapp/api/products/update_product.php', {
         id: product.id,
         name: product.name,
         details: product.details,
-        image: product.image,
+        image: thumb,
         price: product.price,
       })
       .then((res) => {
-        console.log(res.data);
+        if (res.data.success) {
+          // eslint-disable-next-line no-alert
+          alert(res.data.msg);
+          navigate('/products');
+        } else {
+          // eslint-disable-next-line no-alert
+          alert(res.data.msg);
+        }
       });
   };
 
@@ -90,7 +105,7 @@ function ProductEdit() {
               <input
                 type="file"
                 id="_pthumb"
-                name="image"
+                name="thumbnail"
                 onChange={onChangeValue}
                 className="form-control"
               />

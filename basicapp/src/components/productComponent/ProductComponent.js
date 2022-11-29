@@ -4,11 +4,6 @@ import { Link } from 'react-router-dom';
 import './ProductComponent.css';
 
 export default function ProductComponent() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    allProducts();
-  }, []);
-
   const [isproduct, setProduct] = useState([]);
   const allProducts = async () => {
     axios.get(`http://localhost/wdpf51_React/basicapp/api/products/products.php`).then((res) => {
@@ -16,6 +11,11 @@ export default function ProductComponent() {
       setProduct(res.data.productlist.productdata);
     });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    allProducts();
+  }, []);
 
   const delProd = (id) => {
     // console.log(id);
@@ -37,6 +37,20 @@ export default function ProductComponent() {
     }
   };
 
+  // Search Method start
+  const [searchItems, setSearchItems] = useState('');
+  const onSearch = (event) => {
+    setSearchItems(event.target.value);
+    // console.log(searchItems);
+  };
+
+  let filteredProducts = isproduct;
+  if (searchItems !== '') {
+    filteredProducts = isproduct.filter((product) =>
+      product.name.toLowerCase().includes(searchItems.toLocaleLowerCase())
+    );
+  } // Search method ends
+
   return (
     <div className="col-sm-8">
       <div className="card">
@@ -45,13 +59,25 @@ export default function ProductComponent() {
         </div>
         <div className="card-body">
           <div className="row">
-            <div className="row">
-              <Link to="/product/insert" className="btn btn-outline-info mx-2">
+            <div className="row mx-2">
+              <Link to="/product/insert" className="btn btn-outline-info">
                 <strong>Insert New Product</strong>
               </Link>
             </div>
+            <div className="row mx-2 my-2">
+              <label htmlFor="_search">
+                <strong>Search Product:</strong>
+              </label>
+              <input
+                type="text"
+                id="_search"
+                onChange={onSearch}
+                className="form-control"
+                placeholder="Search Here"
+              />
+            </div>
             {/* Product component will call here */}
-            {isproduct.map((item) => (
+            {filteredProducts.map((item) => (
               <div className="col-6" key={item.id}>
                 <div className="card product">
                   <div className="card-header bg-warning">

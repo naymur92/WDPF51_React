@@ -20,12 +20,20 @@ function ProductInsert() {
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
-    console.log(file);
-    // console.log(e.target.files);
     // console.log(e.target.files[0]);
   };
 
-  // const formData = new FormData();
+  const onFileUpload = () => {
+    const formData = new FormData();
+    formData.append('myFile', file);
+
+    console.log(file);
+    axios.post('http://localhost:80/', formData, {
+      headers: {
+        'content-type': 'multipart/form-data',
+      },
+    }); // I need to change this line
+  };
 
   const submitProduct = async (event) => {
     event.preventDefault();
@@ -76,33 +84,51 @@ function ProductInsert() {
               />
             </div>
             <div className="form-group my-2">
-              <label>
+              <label htmlFor="_details">
                 <strong>Product Details:</strong>
-                <textarea
-                  name="details"
-                  placeholder="Enter product details"
-                  onChange={onChangeValue}
-                  className="form-control"
-                />
               </label>
+              <textarea
+                name="details"
+                id="_details"
+                placeholder="Enter product details"
+                onChange={onChangeValue}
+                className="form-control"
+              />
             </div>
             <div className="form-group my-2">
-              <label>
+              <label htmlFor="_image">
                 <strong>Product Thumbnail:</strong>
-                <input type="file" name="image" onChange={onChangeValue} className="form-control" />
               </label>
+              <input
+                type="file"
+                id="_image"
+                name="image"
+                onChange={onFileChange}
+                className="form-control"
+              />
+              <img
+                src={file ? URL.createObjectURL(file) : ''}
+                alt=""
+                width="200px"
+                className="img-thumbnail my-3"
+              />{' '}
+              <br />
+              <button type="button" onClick={onFileUpload} className="btn btn-outline-warning">
+                Upload Image
+              </button>
             </div>
             <div className="form-group my-2">
-              <label>
+              <label htmlFor="_price">
                 <strong>Product Price:</strong>
-                <input
-                  type="number"
-                  name="price"
-                  onChange={onChangeValue}
-                  className="form-control"
-                  placeholder="Enter Price"
-                />
               </label>
+              <input
+                type="number"
+                name="price"
+                id="_price"
+                onChange={onChangeValue}
+                className="form-control"
+                placeholder="Enter Price"
+              />
             </div>
             <input
               type="submit"
