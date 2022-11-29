@@ -16,23 +16,33 @@ function ProductInsert() {
     console.log(productInfo);
   };
 
-  const [file, setFile] = useState();
+  const [file, setFile] = useState('');
 
   const onFileChange = (e) => {
     setFile(e.target.files[0]);
     // console.log(e.target.files[0]);
   };
 
-  const onFileUpload = () => {
+  const onFileUpload = async () => {
     const formData = new FormData();
-    formData.append('myFile', file);
+    formData.append('image', file);
+    // console.log(formData);
 
-    console.log(file);
-    axios.post('http://localhost:80/', formData, {
-      headers: {
-        'content-type': 'multipart/form-data',
-      },
-    }); // I need to change this line
+    // const url = 'http://localhost/wdpf51_React/basicapp/api/products/product_image_upload.php';
+    // axios.post(url, file).then((res) => {
+    //   console.log(res.data);
+    // });
+
+    try {
+      const response = await axios({
+        method: 'post',
+        url: '/',
+        data: formData,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const submitProduct = async (event) => {
