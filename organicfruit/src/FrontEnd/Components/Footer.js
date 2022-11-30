@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -37,7 +38,7 @@ function Footer() {
                           <i className="icofont-google-map" />
                         </div>
                         <div className="detalis">
-                          <p>Sector # 48,123 Vokte Street, Melborn city, Australia</p>
+                          <p>Alamdanga 7210, Chuadanga</p>
                         </div>
                       </li>
                       <li>
@@ -45,7 +46,7 @@ function Footer() {
                           <i className="icofont-phone" />
                         </div>
                         <div className="detalis">
-                          <p>+88978-658-125, 0078-98-954, +1655-456-523</p>
+                          <p>+880 1737 036324, +880 1558 981652</p>
                         </div>
                       </li>
                       <li>
@@ -53,7 +54,7 @@ function Footer() {
                           <i className="icofont-envelope" />
                         </div>
                         <div className="detalis">
-                          <p>Chashi@gmail.com</p>
+                          <p>organicfruit@gmail.com</p>
                         </div>
                       </li>
                     </ul>
@@ -65,7 +66,7 @@ function Footer() {
               <div className="footer-item footer-blog">
                 <div className="footer-inner">
                   <div className="footer-title">
-                    <h5>Chashi Product</h5>
+                    <h5>OrganicFruit Product</h5>
                   </div>
                   <div className="footer-body">
                     <ul className="agri-ul">
@@ -79,20 +80,20 @@ function Footer() {
                           <a href="blog-single.html">
                             <h5>Fruits &Vegetable</h5>
                           </a>
-                          <h6>$24.99</h6>
+                          <h6>Tk. 149.99</h6>
                         </div>
                       </li>
                       <li>
                         <div className="thumb">
-                          <a href="blog-single.html">
-                            <img src="assets/images/blog/02.jpg" alt="footer-blog" />
-                          </a>
+                          <Link to="shop">
+                            <img src="assets/images/blog/honey.jpg" alt="footer-blog" />
+                          </Link>
                         </div>
                         <div className="detalis">
-                          <a href="blog-single.html">
+                          <Link to="shop">
                             <h5>Natural &Honey</h5>
-                          </a>
-                          <h6>$25.99</h6>
+                          </Link>
+                          <h6>Tk. 599.99</h6>
                         </div>
                       </li>
                     </ul>
@@ -104,39 +105,39 @@ function Footer() {
               <div className="footer-item footer-gallery">
                 <div className="footer-inner">
                   <div className="footer-title">
-                    <h5>Chashi Product</h5>
+                    <h5>OrganicFruit Product</h5>
                   </div>
                   <div className="footer-body">
                     <ul className="agri-ul">
                       <li>
-                        <a href="#">
-                          <img src="assets/images/gallery/01.jpg" alt="footer-gallery" />
-                        </a>
+                        <Link to="shop">
+                          <img src="assets/images/gallery/honey.jpg" alt="footer-gallery" />
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
-                          <img src="assets/images/gallery/02.jpg" alt="footer-gallery" />
-                        </a>
+                        <Link to="shop">
+                          <img src="assets/images/gallery/lichi.jpg" alt="footer-gallery" />
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
-                          <img src="assets/images/gallery/03.jpg" alt="footer-gallery" />
-                        </a>
+                        <Link to="shop">
+                          <img src="assets/images/gallery/mango.jpg" alt="footer-gallery" />
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
-                          <img src="assets/images/gallery/04.jpg" alt="footer-gallery" />
-                        </a>
+                        <Link to="shop">
+                          <img src="assets/images/gallery/vegitables.jpg" alt="footer-gallery" />
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link to="shop">
                           <img src="assets/images/gallery/05.jpg" alt="footer-gallery" />
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href="#">
+                        <Link to="shop">
                           <img src="assets/images/gallery/06.jpg" alt="footer-gallery" />
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -149,11 +150,11 @@ function Footer() {
           <p>
             &copy; 2021
             <a href="index.html" target="_blank">
-              <span>Chashi</span>
+              <span>OrganicFruit</span>
             </a>
             All Rights Reserved By
-            <a href="https://themeforest.net/user/labartisan" target="_blank" rel="noreferrer">
-              <span>LabArtisan</span>
+            <a href="https://naymur.bdprogrammers.com" target="_blank" rel="noreferrer">
+              <span>NaymurRahman</span>
             </a>
           </p>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Slider() {
   return (
@@ -10,18 +11,18 @@ function Slider() {
               <div className="banner-item">
                 <div className="banner-inner">
                   <div className="banner-thumb">
-                    <img src="assets/images/blog/01.jpg" alt="banner-slider" />
+                    <img src="assets/images/blog/mango.jpg" alt="banner-slider" />
                   </div>
                   <div className="banner-content">
-                    <h3>Agricul Farm</h3>
-                    <div className="banner-title">Fresh Organic Fruits For Your Health.</div>
-                    <div className="banner-desc">
+                    <h3>Mango Farm</h3>
+                    <div className="banner-title my-5">Fresh Organic Fruits For Your Health.</div>
+                    <div className="banner-desc my-3">
                       Dynamically supply web-enabled portals for high standards income Completely
                       productivate optimal sources strategic.
                     </div>
-                    <a href="#" className="lab-btn">
+                    <Link to="shop" className="lab-btn my-3">
                       <span>Shop Now</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -32,18 +33,20 @@ function Slider() {
               <div className="banner-item">
                 <div className="banner-inner">
                   <div className="banner-thumb">
-                    <img src="assets/images/blog/02.jpg" alt="banner-slider" />
+                    <img src="assets/images/blog/04.jpg" alt="banner-slider" />
                   </div>
                   <div className="banner-content">
-                    <h3>Agricul Farm</h3>
-                    <div className="banner-title">Fresh Organic Fruits For Your Health.</div>
+                    <h3>Vegitable Farm</h3>
+                    <div className="banner-title my-2">
+                      Fresh Organic Vegitables For Your Health.
+                    </div>
                     <div className="banner-desc">
                       Dynamically supply web-enabled portals for high standards income Completely
                       productivate optimal sources strategic.
                     </div>
-                    <a href="#" className="lab-btn">
+                    <Link to="shop" className="lab-btn">
                       <span>Shop Now</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -54,18 +57,18 @@ function Slider() {
               <div className="banner-item">
                 <div className="banner-inner">
                   <div className="banner-thumb">
-                    <img src="assets/images/blog/03.jpg" alt="banner-slider" />
+                    <img src="assets/images/blog/05.jpg" alt="banner-slider" />
                   </div>
                   <div className="banner-content">
-                    <h3>Agricul Farm</h3>
-                    <div className="banner-title">Fresh Organic Fruits For Your Health.</div>
+                    <h3>Bee Farm</h3>
+                    <div className="banner-title my-2">Fresh Organic Honey For Your Health.</div>
                     <div className="banner-desc">
                       Dynamically supply web-enabled portals for high standards income Completely
                       productivate optimal sources strategic.
                     </div>
-                    <a href="#" className="lab-btn">
+                    <Link to="shop" className="lab-btn">
                       <span>Shop Now</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

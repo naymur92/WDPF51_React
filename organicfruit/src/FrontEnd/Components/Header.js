@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import './Header.css';
 
 function Header() {
   return (
@@ -12,15 +13,15 @@ function Header() {
                 <ul className="agri-ul d-flex flex-wrap">
                   <li>
                     <i className="icofont-envelope" />
-                    <span>Chashi@gmail.com</span>
+                    <span>organicfruit@gmail.com</span>
                   </li>
                   <li>
                     <i className="icofont-phone" />
-                    <span>+88130-589-745-6987</span>
+                    <span>+880-1737-036324</span>
                   </li>
                   <li>
                     <i className="icofont-stopwatch" />
-                    <span>Mon - Fri 09:00 - 18:00</span>
+                    <span>Sat - Thu 09:00 - 20:00</span>
                   </li>
                 </ul>
               </div>
@@ -70,11 +71,11 @@ function Header() {
                 <div className="main-area">
                   <div className="main-menu  d-flex flex-wrap align-items-center justify-content-center w-100">
                     <ul className="agri-ul">
-                      <li className="active">
-                        <Link to="/">Home</Link>
+                      <li>
+                        <NavLink to="/">Home</NavLink>
                       </li>
                       <li>
-                        <Link to="about">About</Link>
+                        <NavLink to="about">About</NavLink>
                       </li>
                     </ul>
                     <div className="logo px-4 d-none d-lg-block">
@@ -84,10 +85,10 @@ function Header() {
                     </div>
                     <ul className="agri-ul">
                       <li>
-                        <Link to="shop">Shop</Link>
+                        <NavLink to="shop">Shop</NavLink>
                       </li>
                       <li>
-                        <a href="contact-us.html">Contact</a>
+                        <NavLink to="contact">Contact</NavLink>
                       </li>
                     </ul>
                     <ul className="agri-ul search-cart">
@@ -149,6 +150,11 @@ function Header() {
                         <div className="search-option">
                           <i className="fas fa-search" />
                         </div>
+                      </li>
+                      <li>
+                        <Link className="admin-login" to="login">
+                          <i className="fas fa-user" />
+                        </Link>
                       </li>
                     </ul>
                   </div>

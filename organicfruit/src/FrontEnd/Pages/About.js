@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from '../Components/HomeComponent/Counter';
 
 function About() {
   return (
@@ -8,7 +9,7 @@ function About() {
         <div className="overlay" />
         <div className="container">
           <div className="page-header-content-area">
-            <h4 className="ph-title">Agricul Farm About us</h4>
+            <h4 className="ph-title">About us</h4>
             <ul className="agri-ul">
               <li>
                 <a href="index.html">Home</a>
@@ -60,67 +61,7 @@ function About() {
       {/* <!-- about section ending here --> */}
 
       {/* <!-- counter up section start here --> */}
-      <div className="counterup-section padding-tb bg_counter bg_img">
-        <div className="overlay" />
-        <div className="container">
-          <div className="section-wrapper">
-            <div className="row justify-content-center">
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className="counter-item">
-                  <div className="counter-inner">
-                    <div className="counter-thumb">
-                      <img src="assets/images/counter/01.png" alt="counter" />
-                    </div>
-                    <div className="counter-content">
-                      <h3 className="count-number">5050</h3>
-                      <p className="count-title">Organic Tomato</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className="counter-item">
-                  <div className="counter-inner">
-                    <div className="counter-thumb">
-                      <img src="assets/images/counter/02.png" alt="counter" />
-                    </div>
-                    <div className="counter-content">
-                      <h3 className="count-number">6200</h3>
-                      <p className="count-title">Organic Blueberry</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className="counter-item">
-                  <div className="counter-inner">
-                    <div className="counter-thumb">
-                      <img src="assets/images/counter/03.png" alt="counter" />
-                    </div>
-                    <div className="counter-content">
-                      <h3 className="count-number">8100</h3>
-                      <p className="count-title">Organic Orange</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-xl-3 col-sm-6 col-12">
-                <div className="counter-item">
-                  <div className="counter-inner">
-                    <div className="counter-thumb">
-                      <img src="assets/images/counter/04.png" alt="counter" />
-                    </div>
-                    <div className="counter-content">
-                      <h3 className="count-number">6300</h3>
-                      <p className="count-title">Organic Carrot</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Counter />
       {/* <!-- counter up section ending here --> */}
 
       {/* <!-- Histori section Start here --> */}

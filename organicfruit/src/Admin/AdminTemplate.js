@@ -1,11 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import './AdminTemplate.css';
+import AdminFooter from './Components/AdminFooter';
+import AdminHeader from './Components/AdminHeader';
 
 function AdminTemplate() {
   return (
     <div>
-      <h1>Admin Template</h1>
+      <AdminHeader />
       <Outlet />
+      <AdminFooter />
     </div>
   );
 }
