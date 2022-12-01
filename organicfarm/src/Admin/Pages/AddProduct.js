@@ -30,11 +30,11 @@ function AddProduct() {
         product,
       })
       .then((res) => {
-        navigate('/admin/products');
+        // navigate('/admin/products');
         if (res.data.success) {
-          // navigate('/admin/products');
+          navigate('/admin/products');
         }
-        // alert(res.data.msg);
+        alert(res.data.msg);
         // console.log(res.data);
       });
   };

@@ -14,7 +14,8 @@ if (isset($data->product)) {
   $stock = mysqli_real_escape_string($db_conn, trim($product->stock));
 
   if ($thumbnail != '') {
-    $thumbnail = end(explode("\\", $product->thumbnail));
+    $filename = explode("\\", $product->thumbnail);
+    $thumbnail = end($filename);
   }
 
   $sql = "INSERT INTO products VALUES(NULL, '$name', '$description', '$price', '$category', '$status', '$thumbnail', '$stock', DEFAULT)";

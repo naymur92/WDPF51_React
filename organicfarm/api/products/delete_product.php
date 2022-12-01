@@ -10,7 +10,11 @@ if (
   $prodid = mysqli_real_escape_string($db_conn, trim($_GET['id']));
 
   $result = mysqli_query($db_conn, "DELETE FROM products WHERE id='$prodid'");
-  // echo mysqli_affected_rows($db_conn);
+
+  // echo json_encode(mysqli_affected_rows($db_conn));
+  // echo json_encode($db_conn->affected_rows);
+  // echo $db_conn->affected_rows;
+
   if ($result) {
     echo json_encode(["success" => true, "msg" => "Successfully Deleted"]);
     return;
