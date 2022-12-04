@@ -15,12 +15,12 @@ function Slider() {
                   </div>
                   <div className="banner-content">
                     <h3>Mango Farm</h3>
-                    <div className="banner-title my-5">Fresh Organic Fruits For Your Health.</div>
-                    <div className="banner-desc my-3">
+                    <div className="banner-title">Fresh & Organic Fruits For Your Health.</div>
+                    <div className="banner-desc">
                       Dynamically supply web-enabled portals for high standards income Completely
                       productivate optimal sources strategic.
                     </div>
-                    <Link to="shop" className="lab-btn my-3">
+                    <Link to="shop" className="lab-btn">
                       <span>Shop Now</span>
                     </Link>
                   </div>
@@ -37,9 +37,7 @@ function Slider() {
                   </div>
                   <div className="banner-content">
                     <h3>Vegitable Farm</h3>
-                    <div className="banner-title my-2">
-                      Fresh Organic Vegitables For Your Health.
-                    </div>
+                    <div className="banner-title">Fresh Organic Vegitables For Your Health.</div>
                     <div className="banner-desc">
                       Dynamically supply web-enabled portals for high standards income Completely
                       productivate optimal sources strategic.
@@ -61,7 +59,7 @@ function Slider() {
                   </div>
                   <div className="banner-content">
                     <h3>Bee Farm</h3>
-                    <div className="banner-title my-2">Fresh Organic Honey For Your Health.</div>
+                    <div className="banner-title">Fresh Organic Honey For Your Health.</div>
                     <div className="banner-desc">
                       Dynamically supply web-enabled portals for high standards income Completely
                       productivate optimal sources strategic.

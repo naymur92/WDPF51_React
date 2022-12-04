@@ -1,21 +1,19 @@
 <?php
 require '../dbconfig.php';
-
+$data = json_decode(file_get_contents('php://input'));
+$data = $data->params;
+$id = mysqli_real_escape_string($db_conn, trim($data->id));
 
 if (
-  isset($_GET['id'])
-  && !empty(trim($_GET['id']))
+  isset($id)
+  && !empty($id)
 ) {
 
-  $prodid = mysqli_real_escape_string($db_conn, trim($_GET['id']));
+  $sql = "DELETE FROM products WHERE id=$id";
 
-  $result = mysqli_query($db_conn, "DELETE FROM products WHERE id='$prodid'");
+  $result = $db_conn->query($sql);
 
-  // echo json_encode(mysqli_affected_rows($db_conn));
-  // echo json_encode($db_conn->affected_rows);
-  // echo $db_conn->affected_rows;
-
-  if ($result) {
+  if ($db_conn->affected_rows === 1) {
     echo json_encode(["success" => true, "msg" => "Successfully Deleted"]);
     return;
   } else {
@@ -26,3 +24,5 @@ if (
   echo json_encode(["success" => false, "msg" => "Unauthorised Access!"]);
   return;
 }
+
+$db_conn->close();

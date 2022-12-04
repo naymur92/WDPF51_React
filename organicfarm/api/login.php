@@ -8,9 +8,9 @@ if (isset($_GET['userInfo'])) {
   // echo json_encode($email);
   // echo json_encode($password);
   if ($email != '' && $password != '') {
-    $result = mysqli_query($db_conn, "SELECT * FROM employees WHERE email='$email' AND password='$password' AND (role='admin' OR role='manager')");
+    $result = $db_conn->query("SELECT * FROM employees WHERE email='$email' AND password='$password' AND (role='admin' OR role='manager')");
 
-    if (mysqli_num_rows($result) === 1) {
+    if ($result->num_rows === 1) {
       echo json_encode(['success' => true, 'msg' => 'Login Success']);
       return;
     } else {

@@ -6,7 +6,7 @@ function Products() {
   const [products, setProducts] = useState([]);
 
   // Get all products
-  const allProducts = async () => {
+  const allProducts = () => {
     axios.get(`http://localhost/wdpf51_React/organicfarm/api/products/products.php`).then((res) => {
       // console.log(res.data.products);
       setProducts(res.data.products);
@@ -25,7 +25,6 @@ function Products() {
 
   let filteredProducts = products;
   if (category !== 'all') {
-    // console.log(category);
     filteredProducts = products.filter((product) => product.category.includes(category));
   } // Filter method ends
 
@@ -33,7 +32,6 @@ function Products() {
   const [searchItems, setSearchItems] = useState('');
   const onSearch = (event) => {
     setSearchItems(event.target.value);
-    // console.log(searchItems);
   };
 
   // let searchedProducts = products;
@@ -63,10 +61,12 @@ function Products() {
       });
   };
 
-  const delProd = async (id) => {
+  const delProd = (id) => {
     // console.log(id);
     axios
-      .delete(`http://localhost/wdpf51_React/organicfarm/api/products/delete_product.php/?id=${id}`)
+      .put(`http://localhost/wdpf51_React/organicfarm/api/products/delete_product.php`, {
+        params: { id },
+      })
       .then((res) => {
         // console.log(res.data);
         if (res.data.success) {
@@ -188,7 +188,7 @@ function Products() {
                 </thead>
                 <tbody>
                   {searchedProducts.map((item, index) => (
-                    <tr key={item.id}>
+                    <tr key={item.id.toString()}>
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
                       <td>{item.price}</td>

@@ -21,7 +21,7 @@ function AddProduct() {
     });
   };
 
-  const submitData = async (event) => {
+  const submitData = (event) => {
     event.preventDefault();
     // console.log(product);
 
@@ -30,7 +30,6 @@ function AddProduct() {
         product,
       })
       .then((res) => {
-        // navigate('/admin/products');
         if (res.data.success) {
           navigate('/admin/products');
         }

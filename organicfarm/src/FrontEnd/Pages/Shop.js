@@ -8,10 +8,10 @@ function Shop() {
 
   // Get all products
   const allProducts = async () => {
-    axios.get(`http://localhost/wdpf51_React/organicfarm/api/products/products.php`).then((res) => {
-      // console.log(res.data.products);
-      setProducts(res.data.products);
-    });
+    const res = await axios.get(
+      `http://localhost/wdpf51_React/organicfarm/api/products/products.php`
+    );
+    setProducts(res.data.products);
   };
 
   useEffect(() => {

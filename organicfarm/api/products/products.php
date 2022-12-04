@@ -1,7 +1,7 @@
 <?php
 include '../dbconfig.php';
 
-$result = mysqli_query($db_conn, "SELECT * FROM products");
+$result = $db_conn->query("SELECT * FROM products");
 
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
@@ -13,3 +13,4 @@ if ($result->num_rows > 0) {
   echo json_encode(["success" => false, "msg" => 'No Products']);
   return;
 }
+$db_conn->close();

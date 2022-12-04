@@ -7,7 +7,7 @@ function UserList() {
   const alluser = async () => {
     try {
       axios.get(`http://localhost/wdpf51_React/basicapp/api/users.php`).then((res) => {
-        console.log(res.data.userlist.userdata);
+        // console.log(res.data.userlist.userdata);
         setuser(res.data.userlist.userdata);
       });
     } catch (error) {

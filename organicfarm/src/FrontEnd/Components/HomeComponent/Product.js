@@ -6,7 +6,7 @@ function Product() {
   const [products, setProducts] = useState([]);
 
   // Get all products
-  const allProducts = async () => {
+  const allProducts = () => {
     axios.get(`http://localhost/wdpf51_React/organicfarm/api/products/products.php`).then((res) => {
       // console.log(res.data.products);
       setProducts(res.data.products);
@@ -16,6 +16,7 @@ function Product() {
   useEffect(() => {
     window.scrollTo(0, 0);
     allProducts();
+
     // console.log(products);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,7 +35,11 @@ function Product() {
         <div className="section-wrapper">
           <div className="row justify-content-center">
             {products.slice(0, 8).map((item) => (
-              <div className="col-lg-3 col-md-6 col-12 wow fadeInUp" data-wow-delay="0.4s">
+              <div
+                className="col-lg-3 col-md-6 col-12 wow fadeInUp"
+                data-wow-delay="0.4s"
+                key={item.id}
+              >
                 <div className="product-item-2">
                   <div className="product-inner">
                     <div className="product-thumb">

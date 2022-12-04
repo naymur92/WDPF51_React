@@ -21,9 +21,9 @@ if (isset($data->product)) {
   $sql = "INSERT INTO products VALUES(NULL, '$name', '$description', '$price', '$category', '$status', '$thumbnail', '$stock', DEFAULT)";
   // echo $sql;
 
-  $result = mysqli_query($db_conn, $sql);
+  $result = $db_conn->query($sql);
 
-  if (mysqli_affected_rows($db_conn) > 0) {
+  if ($db_conn->affected_rows > 0) {
     echo json_encode(['success' => true, 'msg' => 'Product Added']);
     return;
   } else {
@@ -34,3 +34,4 @@ if (isset($data->product)) {
   echo json_encode(['success' => false, 'msg' => 'Unauthorised Access']);
   return;
 }
+$db_conn->close();
