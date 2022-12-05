@@ -21,7 +21,7 @@ export default function Navbar() {
               About Us
             </NavLink>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink className="nav-link" to="contact">
               Contact Us
             </NavLink>
@@ -45,10 +45,15 @@ export default function Navbar() {
             <NavLink className="nav-link" to="lifecycle">
               LifyCycle
             </NavLink>
-          </li>
+          </li> */}
           <li className="nav-item">
             <NavLink className="nav-link" to="users">
               User List
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="modal">
+              Modal
             </NavLink>
           </li>
         </ul>

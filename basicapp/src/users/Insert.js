@@ -4,28 +4,21 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function Insert() {
   const navigate = useNavigate();
-  const [userInfo, setuserInfo] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [info, setInfo] = useState({});
   const onChangeValue = (e) => {
-    setuserInfo({
-      ...userInfo,
+    setInfo({
+      ...info,
       [e.target.name]: e.target.value,
     });
   };
   // Inserting a new user into the Database.
   const submitUser = async (event) => {
+    event.preventDefault();
+    event.persist();
     try {
-      event.preventDefault();
-      event.persist();
-
       axios
         .post(`http://localhost/wdpf51_React/basicapp/api/addusers.php`, {
-          username: userInfo.name,
-          useremail: userInfo.email,
-          userpass: userInfo.password,
+          info,
         })
         .then((res) => {
           console.log(res.data);

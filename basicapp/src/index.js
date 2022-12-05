@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -13,6 +15,7 @@ import ProductEdit from './components/productComponent/ProductEdit';
 import ProductInsert from './components/productComponent/ProductInsert';
 import Search from './components/Search/Search';
 import './index.css';
+import ModalComponent from './pages/ModalComponent';
 import reportWebVitals from './reportWebVitals';
 import Edit from './users/Edit';
 import Insert from './users/Insert';
@@ -34,6 +37,7 @@ function RouterApp() {
           <Route path="search" element={<Search />} />
           <Route path="lifecycle" element={<LifeCycle />} />
           <Route path="users" element={<UserList />} />
+          <Route path="modal" element={<ModalComponent />} />
           <Route path="users/insert" element={<Insert />} />
           <Route path="users/edit/:ids" element={<Edit />} />
         </Route>
