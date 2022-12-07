@@ -83,8 +83,8 @@ function Login() {
             </form>
           </div>
           <div className="card-footer">
-            <span className="text-warning">Not Registered?</span>
-            <Link to="/register" className="btn btn-outline-warning mx-4">
+            <span className="text-danger">Not Registered?</span>
+            <Link to="/register" className="btn btn-outline-warning float-end">
               Register Now
             </Link>
           </div>
