@@ -1,9 +1,32 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import axios from 'axios';
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Login({ setToken }) {
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token;
+}
+
+function Login() {
+  const navigate = useNavigate();
+
+  const token = getToken();
+
+  const authenticate = () => {
+    if (token) {
+      navigate('/admin');
+    }
+  };
+
+  useEffect(() => {
+    authenticate();
+  });
+
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -16,9 +39,9 @@ function Login({ setToken }) {
       .then((res) => {
         // console.log(res.data);
         if (res.data.success) {
-          const token = { token: res.data.msg };
-          setToken(token);
-          window.location.href = '/dashboard';
+          // const token = { token: res.data.msg };
+          setToken({ token: res.data.msg });
+          navigate('/admin');
         }
       });
   };
@@ -59,6 +82,12 @@ function Login({ setToken }) {
               <input type="submit" className="btn btn-success my-2" value="Login" />
             </form>
           </div>
+          <div className="card-footer">
+            <span className="text-warning">Not Registered?</span>
+            <Link to="/register" className="btn btn-outline-warning mx-4">
+              Register Now
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -66,6 +95,3 @@ function Login({ setToken }) {
 }
 
 export default Login;
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};
