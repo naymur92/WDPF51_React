@@ -25,10 +25,7 @@ function Shop() {
   const [category, setCategory] = useState('');
 
   let filteredProducts = products;
-  if (category !== 'all') {
-    // console.log(category);
-    filteredProducts = products.filter((product) => product.category.includes(category));
-  } // Filter method ends
+  filteredProducts = products.filter((product) => product.category.includes(category));
 
   // Search Method start
   const [searchItems, setSearchItems] = useState('');
@@ -39,11 +36,9 @@ function Shop() {
 
   // let searchedProducts = products;
   let searchedProducts = filteredProducts;
-  if (searchItems !== '') {
-    searchedProducts = filteredProducts.filter((product) =>
-      product.name.toLowerCase().includes(searchItems.toLocaleLowerCase())
-    );
-  } // Search method ends
+  searchedProducts = filteredProducts.filter((product) =>
+    product.name.toLowerCase().includes(searchItems.toLocaleLowerCase())
+  );
 
   return (
     <>
@@ -193,7 +188,7 @@ function Shop() {
                     <div className="widget-wrapper">
                       <ul className="agri-ul shop-menu">
                         <li>
-                          <a className="filter-btn" onClick={() => setCategory('all')}>
+                          <a className="filter-btn" onClick={() => setCategory('')}>
                             All Products
                           </a>
                         </li>

@@ -24,7 +24,6 @@ function AddProduct() {
   const submitData = (event) => {
     event.preventDefault();
     // console.log(product);
-
     axios
       .post(`http://localhost/wdpf51_React/organicfarm/api/products/addproduct.php`, {
         product,

@@ -20,13 +20,16 @@ function Products() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Filter Method Starts
+  // Filter Method
   const [category, setCategory] = useState('');
+  const filteredProducts = products.filter((product) => product.category.includes(category));
 
-  let filteredProducts = products;
-  if (category !== 'all') {
-    filteredProducts = products.filter((product) => product.category.includes(category));
-  } // Filter method ends
+  const [prodStatus, setStatus] = useState('');
+  // console.log(prodStatus);
+
+  // const filteredByAvailability = filteredProducts.filter((product) =>
+  //   product.status.includes(prodStatus)
+  // );
 
   // Search Method start
   const [searchItems, setSearchItems] = useState('');
@@ -34,13 +37,9 @@ function Products() {
     setSearchItems(event.target.value);
   };
 
-  // let searchedProducts = products;
-  let searchedProducts = filteredProducts;
-  if (searchItems !== '') {
-    searchedProducts = filteredProducts.filter((product) =>
-      product.name.toLowerCase().includes(searchItems.toLocaleLowerCase())
-    );
-  } // Search method ends
+  const searchedProducts = filteredProducts.filter((product) =>
+    product.name.toLowerCase().includes(searchItems.toLocaleLowerCase())
+  ); // search method ends
 
   // Change Status of products
   const changeStatus = async (id, status) => {
@@ -102,7 +101,7 @@ function Products() {
                 <li>
                   <button
                     type="button"
-                    onClick={() => setCategory('all')}
+                    onClick={() => setCategory('')}
                     className="left-menu btn btn-outline-primary"
                   >
                     All Products
@@ -135,6 +134,30 @@ function Products() {
                     Honey
                   </button>
                 </li>
+                {/* <li>
+                  <div className="form-group my-3">
+                    <label htmlFor="_available">Available Products</label>
+                    <input
+                      type="radio"
+                      onChange={() => setStatus('available')}
+                      className="form-check-input"
+                      id="_available"
+                      name="availability"
+                      value="available"
+                    />
+                  </div>
+                  <div className="form-group my-3">
+                    <label htmlFor="_unavailable">Unvailable Products</label>
+                    <input
+                      type="radio"
+                      onChange={() => setStatus('unavailable')}
+                      className="form-check-input"
+                      id="_unavailable"
+                      name="availability"
+                      value="unavailable"
+                    />
+                  </div>
+                </li> */}
                 <li>
                   <NavLink to="addproduct" className="left-menu btn btn-primary my-3">
                     Add Product

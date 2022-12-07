@@ -2,30 +2,23 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 
 function Login({ setToken }) {
-  // const navigate = useNavigate();
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     await axios
       .get('http://localhost/wdpf51_React/reactloginauth/api/login.php', {
         params: { email, password },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.success) {
-          const token = { token: 'logged in' };
+          const token = { token: res.data.msg };
           setToken(token);
-          // navigate(`/`);
-          // eslint-disable-next-line no-restricted-globals
-          // location.reload();
-          window.location.href = '/';
+          window.location.href = '/dashboard';
         }
       });
   };

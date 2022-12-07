@@ -8,20 +8,16 @@ import Preferences from './components/Preferences/Preferences';
 
 function setToken(userToken) {
   sessionStorage.setItem('token', JSON.stringify(userToken));
-  // console.log(userToken);
 }
 
 function getToken() {
   const tokenString = sessionStorage.getItem('token');
   const userToken = JSON.parse(tokenString);
-  // eslint-disable-next-line no-unreachable
-  console.log(userToken);
   return userToken?.token;
 }
 
 function App() {
   const token = getToken();
-  console.log(token);
 
   if (!token) {
     return <Login setToken={setToken} />;
