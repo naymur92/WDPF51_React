@@ -26,11 +26,11 @@ function Registration() {
   };
 
   return (
-    <div className="row justify-content-center mt-2">
+    <div className="row justify-content-center my-4">
       <div className="col-4">
         <div className="card">
           <div className="card-header">
-            <h3 className="text-center">Registration Page</h3>
+            <h3 className="text-center">Registration Form</h3>
           </div>
           <div className="card-body">
             <form onSubmit={userRegistration}>

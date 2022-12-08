@@ -1,32 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import Footer from '../Footer';
 import AdminHeader from './AdminHeader';
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token;
-}
 
 function AdminTemplate() {
   const navigate = useNavigate();
-
-  const token = getToken();
+  const [loginInfo, setLoginInfo] = useState(JSON.parse(sessionStorage.getItem('logininfo')));
 
   const authenticate = () => {
-    if (!token) {
+    if (loginInfo?.status !== 'loggedin') {
       navigate('/login');
+    } else if (loginInfo?.usertype === 'user') {
+      navigate('/user');
     }
   };
 
   useEffect(() => {
     authenticate();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <AdminHeader />
       <Outlet />
+      <Footer />
     </>
   );
 }

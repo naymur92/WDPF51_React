@@ -2,30 +2,22 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token;
-}
-
 function Login() {
   const navigate = useNavigate();
-
-  const token = getToken();
+  const [loginInfo, setLoginInfo] = useState(JSON.parse(sessionStorage.getItem('logininfo')));
 
   const authenticate = () => {
-    if (token) {
+    if (loginInfo?.usertype === 'admin') {
       navigate('/admin');
+    } else if (loginInfo?.usertype === 'user') {
+      navigate('/user');
     }
   };
 
   useEffect(() => {
     authenticate();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -37,21 +29,24 @@ function Login() {
         params: { email, password },
       })
       .then((res) => {
-        // console.log(res.data);
+        // console.log(res.data.logininfo);
         if (res.data.success) {
-          // const token = { token: res.data.msg };
-          setToken({ token: res.data.msg });
-          navigate('/admin');
+          sessionStorage.setItem('logininfo', JSON.stringify(res.data.logininfo));
+          if (res.data.logininfo.usertype === 'admin') {
+            navigate('/admin');
+          } else {
+            navigate('/user');
+          }
         }
       });
   };
 
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center my-4">
       <div className="col-4">
         <div className="card">
           <div className="card-header">
-            <h3 className="text-center">Login Page</h3>
+            <h3 className="text-center">Login Form</h3>
           </div>
           <div className="card-body">
             <form onSubmit={handleSubmit}>

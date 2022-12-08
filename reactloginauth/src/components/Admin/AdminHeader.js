@@ -14,8 +14,8 @@ function AdminHeader() {
       <div className="container-fluid">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/admin">
-              Home
+            <NavLink className="nav-link" to="/">
+              Dashboard
             </NavLink>
           </li>
           <li className="nav-item">

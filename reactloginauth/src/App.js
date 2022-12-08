@@ -9,6 +9,10 @@ import Home from './components/Home';
 import Login from './components/Login/Login';
 import MainTemplate from './components/MainTemplate';
 import Registration from './components/Registration/Registration';
+import MyBookings from './components/User/MyBookings';
+import MyWishlists from './components/User/MyWishlists';
+import UserDashboard from './components/User/UserDashboard';
+import UserTemplate from './components/User/UserTemplate';
 
 function App() {
   return (
@@ -21,6 +25,11 @@ function App() {
             <Route path="contact" element={<ContactUs />} />
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Registration />} />
+          </Route>
+          <Route path="user" element={<UserTemplate />}>
+            <Route index element={<UserDashboard />} />
+            <Route path="bookings" element={<MyBookings />} />
+            <Route path="wishlists" element={<MyWishlists />} />
           </Route>
           <Route path="admin" element={<AdminTemplate />}>
             <Route index element={<Dashboard />} />

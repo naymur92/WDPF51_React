@@ -22,7 +22,7 @@ if (
     echo json_encode(['success' => false, 'msg' => 'Duplicate Email']);
     return;
   } else {
-    mysqli_query($db_conn, "INSERT INTO users VALUES(NULL, '$firstname', '$lastname', '$email', '$password')");
+    mysqli_query($db_conn, "INSERT INTO users VALUES(NULL, '$firstname', '$lastname', '$email', '$password', DEFAULT, DEFAULT)");
 
     if ($db_conn->affected_rows > 0) {
       echo json_encode(['success' => true, 'msg' => 'Successfully Registered']);

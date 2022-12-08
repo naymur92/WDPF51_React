@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 07, 2022 at 02:10 PM
+-- Host: 127.0.0.1
+-- Generation Time: Dec 08, 2022 at 08:43 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -32,17 +32,19 @@ CREATE TABLE `users` (
   `firstname` varchar(15) NOT NULL,
   `lastname` varchar(15) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(64) NOT NULL
+  `password` varchar(64) NOT NULL,
+  `user_type` varchar(10) NOT NULL DEFAULT 'user',
+  `user_status` varchar(10) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) VALUES
-(1, '', '', 'naymur@example.com', 'abcd1234'),
-(2, '', '', 'kamrul@example.com', 'abcd1234'),
-(3, 'Naymur', 'Rahman', 'naymur92@gmail.com', 'abcd1234');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`, `user_type`, `user_status`) VALUES
+(2, 'Kamrul', 'Hasan', 'kamrul@example.com', 'abcd1234', 'user', 'active'),
+(3, 'Naymur', 'Rahman', 'naymur@example.com', 'abcd1234', 'admin', 'active'),
+(4, 'Alauddin', 'Alo', 'alauddin@example.com', 'abcd1234', 'user', 'pending');
 
 --
 -- Indexes for dumped tables
@@ -62,7 +64,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` mediumint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` mediumint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
